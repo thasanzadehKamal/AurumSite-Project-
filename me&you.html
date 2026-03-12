@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Me & You Baku</title>
+  <link rel="stylesheet" href="">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans">
+  <header id="top" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+      <a href="#top" class="text-left">
+        <div class="font-display text-2xl italic tracking-wide">Me & You</div>
+        <div class="font-accent text-[11px] uppercase tracking-[0.35em]">
+          Baku
+        </div>
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm md:flex">
+        <a href="#about" class="text-chocolate/80 transition hover:text-espresso">About</a>
+        <a href="#menu" class="text-chocolate/80 transition hover:text-espresso">Menu</a>
+        <a href="#gallery" class="text-chocolate/80 transition hover:text-espresso">Gallery</a>
+        <a href="#reserve" class="text-chocolate/80 transition hover:text-espresso">Reserve</a>
+      </div>
+
+      <div class="hidden items-center gap-4 md:flex">
+        <a href="https://www.instagram.com/meandyoubaku/?__pwa=1#" aria-label="Instagram"
+          class="rounded-full border border-chocolate/30 p-2 text-chocolate transition hover:border-chocolate">
+          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="4" y="4" width="16" height="16" rx="5" />
+            <circle cx="12" cy="12" r="3.5" />
+            <circle cx="17" cy="7" r="1" />
+          </svg>
+        </a>
+        <a href="#reserve"
+          class="rounded-full bg-espresso px-5 py-2 text-sm uppercase tracking-widest text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
+          aria-label="Reserve a table">Reserve a table</a>
+      </div>
+
+      <button class="md:hidden" aria-label="Open menu" data-mobile-open>
+        <span class="block h-[2px] w-7 bg-espresso"></span>
+        <span class="mt-2 block h-[2px] w-7 bg-espresso"></span>
+      </button>
+    </nav>
+
+    <div
+      class="fixed inset-0 z-40 bg-espresso/20 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+      data-mobile-overlay></div>
+    <div
+      class="fixed inset-0 z-50 translate-x-full bg-espresso/95 text-foam transition-transform duration-300 md:hidden"
+      data-mobile-panel>
+      <div class="flex items-center justify-between px-6 py-5">
+        <div class="font-display text-2xl italic">Me & You</div>
+        <button aria-label="Close menu" data-mobile-close>
+          <span class="block h-[2px] w-8 rotate-45 bg-foam"></span>
+          <span class="-mt-[2px] block h-[2px] w-8 -rotate-45 bg-foam"></span>
+        </button>
+      </div>
+      <div id="mobile-section" class="flex flex-col gap-6 bg-espresso/85 backdrop-blur-lg px-6 pt-10 text-2xl">
+        <a href="#about" class="border-b border-foam/20 pb-3" data-mobile-link>About</a>
+        <a href="#menu" class="border-b border-foam/20 pb-3" data-mobile-link>Menu</a>
+        <a href="#gallery" class="border-b border-foam/20 pb-3" data-mobile-link>Gallery</a>
+        <a href="#reserve" class="border-b border-foam/20 pb-3" data-mobile-link>Reserve</a>
+        <a href="#reserve" class="mt-6 rounded-full bg-foam px-6 py-3 text-sm uppercase tracking-[0.3em] text-espresso"
+          data-mobile-link>Reserve a table</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <section class="relative overflow-hidden">
+      <div class="hero-noise absolute inset-0"></div>
+      <div
+        class="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-20 pt-16 lg:grid-cols-[1.05fr_1fr]">
+        <div class="space-y-8">
+          <div class="font-accent text-sm uppercase tracking-[0.4em] text-roasted">
+            Specialty coffee & brunch
+          </div>
+          <h1 class="font-display text-4xl italic leading-tight text-espresso sm:text-5xl lg:text-[72px]">
+            <span class="block">
+              <span class="word-reveal mr-2" style="animation-delay: 0.1s">Some</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.22s">moments</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.34s">deserve</span>
+            </span>
+            <span class="block">
+              <span class="word-reveal mr-2" style="animation-delay: 0.46s">a</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.58s">slow</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.7s">morning.</span>
+            </span>
+          </h1>
+          <p class="max-w-lg text-base text-chocolate/70">
+            Specialty coffee & brunch in the heart of Baku. A room for soft
+            mornings, slow sips, and the kind of conversation that lingers.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#menu"
+              class="rounded-full border border-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-espresso transition duration-300 hover:scale-[1.02] hover:bg-espresso hover:text-foam"
+              aria-label="Explore menu">Explore menu</a>
+            <a href="#reserve"
+              class="rounded-full bg-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
+              aria-label="Reserve a table">Reserve a table</a>
+          </div>
+          <div class="flex items-center gap-4 text-chocolate/60">
+            <div class="h-14 w-[1px] bg-chocolate/30"></div>
+            <div class="relative h-14 w-2">
+              <span class="scroll-dot absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-roasted"></span>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="vignette shadow-soft">
+            <img
+              src="https://images.unsplash.com/photo-1751956066306-c5684cbcf385?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1600"
+              alt="Warm cafe interior" class="h-[420px] w-full rounded-[2px] object-cover sm:h-[520px]" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-6xl px-5">
+      <svg viewBox="0 0 600 50" class="h-10 w-full text-roasted/50" fill="none" stroke="currentColor" stroke-width="1.2"
+        aria-hidden="true">
+        <path d="M10 25c40 10 70-10 110 0s70 10 110 0 70-10 110 0 70 10 110 0 80-10 130 0" />
+      </svg>
+    </div>
+
+    <section id="about" class="bg-espresso text-foam">
+      <div class="mx-auto max-w-6xl px-5 py-20 text-center reveal">
+        <p class="font-display text-3xl italic sm:text-4xl lg:text-5xl">
+          "We built this place for two. Or just for you."
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-8 text-sm uppercase tracking-[0.3em] text-foam/70">
+          <div><span class="text-base">?</span> Specialty Coffee</div>
+          <div><span class="text-base">??</span> Fresh Brunch Daily</div>
+          <div><span class="text-base">??</span> Baku, AZ</div>
+        </div>
+      </div>
+      <div class="overflow-hidden border-t border-foam/10 pb-6">
+        <div
+          class="marquee-track flex w-[200%] gap-6 whitespace-nowrap px-5 text-xs uppercase tracking-[0.4em] text-foam/60">
+          <span>LATTE &bull; FLAT WHITE &bull; COLD BREW &bull; EGGS BENEDICT &bull; CROISSANT &bull;
+            MATCHA &bull; POUR OVER &bull;</span>
+          <span>LATTE &bull; FLAT WHITE &bull; COLD BREW &bull; EGGS BENEDICT &bull; CROISSANT &bull;
+            MATCHA &bull; POUR OVER &bull;</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="mx-auto max-w-6xl px-5 py-20 reveal">
+      <div class="mb-10">
+        <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted">
+          What we brew
+        </p>
+        <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl">
+          What we brew
+        </h2>
+      </div>
+
+      <div class="relative mb-10 border-b border-foam" data-tabs>
+        <div class="flex flex-wrap gap-8 text-sm uppercase tracking-[0.3em]">
+          <button class="pb-4 text-espresso" data-tab="Coffee">Coffee</button>
+          <button class="pb-4 text-chocolate/50" data-tab="Brunch">
+            Brunch
+          </button>
+          <button class="pb-4 text-chocolate/50" data-tab="Desserts">
+            Desserts
+          </button>
+        </div>
+        <span class="menu-indicator absolute bottom-0 left-0 h-[2px] bg-roasted" data-indicator></span>
+      </div>
+
+      <div class="grid gap-10 lg:grid-cols-2" data-menu-grid></div>
+    </section>
+    <section id="gallery" class="mx-auto max-w-6xl px-5 py-20 reveal">
+      <div class="mb-10">
+        <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted">
+          A corner of your own
+        </p>
+        <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl">
+          A corner of your own
+        </h2>
+      </div>
+      <div class="columns-1 gap-4 md:columns-2 lg:columns-3">
+        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
+          <img
+            src="https://images.unsplash.com/photo-1751956066306-c5684cbcf385?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
+            alt="Cafe interior with warm lighting"
+            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
+          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+          <div
+            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Evening glow</span>
+          </div>
+        </div>
+        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
+          <img
+            src="https://images.unsplash.com/photo-1762657440603-2afa5580eaf8?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+            alt="Hands holding coffee cup"
+            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
+          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+          <div
+            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Warm hands, warm cups</span>
+          </div>
+        </div>
+        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
+          <img
+            src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
+            alt="Pastries and coffee flatlay"
+            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
+          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+          <div
+            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Morning pastry</span>
+          </div>
+        </div>
+        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
+            alt="Brunch spread on a table"
+            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
+          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+          <div
+            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Brunch light</span>
+          </div>
+        </div>
+        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
+          <img
+            src="https://images.unsplash.com/photo-1768225385872-03945d45a0d3?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
+            alt="Tiramisu dessert"
+            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
+          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+          <div
+            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Sweet finish</span>
+          </div>
+        </div>
+        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
+          <img
+            src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
+            alt="Cafe table by the window"
+            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
+          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+          <div
+            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Window whispers</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 flex items-center justify-between border-t border-foam pt-6 text-sm text-chocolate/70">
+        <span>The light is always better near the window.</span>
+        <a href="https://www.instagram.com" class="font-accent uppercase tracking-[0.3em] text-roasted">Follow us
+          @meandyoubaku</a>
+      </div>
+    </section>
+
+    <section class="bg-foam">
+      <div class="mx-auto max-w-6xl px-5 py-20 reveal">
+        <div class="mb-10">
+          <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted">
+            The experience
+          </p>
+          <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl">
+            The experience
+          </h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div
+            class="rounded-[2px] border border-foam bg-parchment p-6 shadow-soft transition duration-500 hover:-translate-y-2 hover:shadow-glow">
+            <div class="text-roasted">
+              <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.2"
+                aria-hidden="true">
+                <path d="M4 10h10a4 4 0 0 1 0 8H6a2 2 0 0 1-2-2v-6z" />
+                <path d="M14 10h2a3 3 0 0 1 0 6h-2" />
+                <path d="M6 6c0 1.5 2 1.5 2 3" />
+                <path d="M10 6c0 1.5 2 1.5 2 3" />
+              </svg>
+            </div>
+            <h3 class="mt-6 font-serif text-xl text-espresso">Morning Ritual</h3>
+            <p class="mt-3 text-sm text-chocolate/70">
+              Daily from 08:00. Fresh-baked croissants, single origin pour-overs.
+            </p>
+          </div>
+          <div
+            class="rounded-[2px] border border-foam bg-parchment p-6 shadow-soft transition duration-500 hover:-translate-y-2 hover:shadow-glow">
+            <div class="text-roasted">
+              <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.2"
+                aria-hidden="true">
+                <circle cx="12" cy="12" r="7" />
+                <path d="M12 9v4l3 2" />
+                <path d="M5 4l2 2" />
+                <path d="M17 4l2 2" />
+              </svg>
+            </div>
+            <h3 class="mt-6 font-serif text-xl text-espresso">Brunch Weekends</h3>
+            <p class="mt-3 text-sm text-chocolate/70">
+              Sat & Sun until 15:00. Extended menu, live acoustic background music.
+            </p>
+          </div>
+          <div
+            class="rounded-[2px] border border-foam bg-parchment p-6 shadow-soft transition duration-500 hover:-translate-y-2 hover:shadow-glow">
+            <div class="text-roasted">
+              <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.2"
+                aria-hidden="true">
+                <path d="M4 20V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14" />
+                <path d="M4 16h16" />
+                <path d="M9 16v4" />
+                <path d="M15 16v4" />
+              </svg>
+            </div>
+            <h3 class="mt-6 font-serif text-xl text-espresso">Private Corner</h3>
+            <p class="mt-3 text-sm text-chocolate/70">
+              Reserve the window table for slow celebrations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reserve" class="mx-auto max-w-6xl px-5 py-20 reveal">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.05fr]">
+        <div class="vignette shadow-soft">
+          <img
+            src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1400"
+            alt="Table by the window" class="h-full w-full rounded-[2px] object-cover" />
+        </div>
+        <div>
+          <div class="mb-6">
+            <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted">
+              Reserve
+            </p>
+            <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl">
+              Reserve your table
+            </h2>
+            <p class="mt-3 text-sm text-chocolate/70">
+              Tell us the time. We'll keep it warm.
+            </p>
+          </div>
+
+          <form class="grid gap-4">
+            <input type="text" placeholder="Name" aria-label="Name"
+              class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
+            <div class="grid gap-4 sm:grid-cols-2">
+              <input type="date" aria-label="Date"
+                class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
+              <input type="time" aria-label="Time"
+                class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
+            </div>
+            <input type="number" placeholder="Number of guests" aria-label="Number of guests"
+              class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
+            <textarea placeholder="Note (optional)" aria-label="Note" rows="3"
+              class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm"></textarea>
+            <button type="submit"
+              class="rounded-full bg-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
+              aria-label="Submit reservation">
+              Reserve now
+            </button>
+          </form>
+
+          <div class="mt-10 grid gap-6 text-sm text-chocolate/70">
+            <div>
+              <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+                Address
+              </div>
+              <p>Vladislav Plotnikov küçəsi, Baku 1007</p>
+            </div>
+            <div>
+              <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+                Phone
+              </div>
+              <p>050 578 60 29</p>
+            </div>
+            <div>
+              <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+                Working hours
+              </div>
+                <div class="mt-2 rounded-[2px] border border-foam bg-foam/60 p-4 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span>Monday</span>
+                    <span>8:00 AM &ndash; 12:00 AM</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between">
+                    <span>Tuesday</span>
+                    <span>8:00 AM &ndash; 12:00 AM</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between">
+                    <span>Wednesday</span>
+                    <span>8:00 AM &ndash; 12:00 AM</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between">
+                    <span>Thursday</span>
+                    <span>8:00 AM &ndash; 12:00 AM</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between">
+                    <span>Friday</span>
+                    <span>8:00 AM &ndash; 12:00 AM</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between">
+                    <span>Saturday</span>
+                    <span>8:00 AM &ndash; 12:00 AM</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between">
+                    <span>Sunday</span>
+                    <span>8:00 AM &ndash; 12:00 AM</span>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <iframe title="Map" class="h-56 w-full rounded-[2px] border border-foam"
+              src="https://maps.google.com/maps?q=Vladislav%20Plotnikov%20k%C3%BC%C3%A7%C9%99si%2C%20Baku%201007&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="border-t border-foam bg-parchment/90">
+    <div class="mx-auto max-w-6xl px-5 py-14">
+      <div class="text-center">
+        <div class="font-display text-2xl italic">Me & You</div>
+        <div class="font-accent text-[11px] uppercase tracking-[0.35em]">Baku</div>
+      </div>
+      <div class="mt-10 grid gap-8 text-sm text-chocolate/70 md:grid-cols-3">
+        <div>
+          <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+            Navigate
+          </div>
+          <div class="mt-3 flex flex-col gap-2">
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#reserve">Reserve</a>
+          </div>
+        </div>
+        <div>
+          <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+            Contact
+          </div>
+          <div class="mt-3 flex flex-col gap-2">
+            <span>Vladislav Plotnikov küçəsi, Baku 1007</span>
+              <span>050 578 60 29</span>
+            <span>hello@meandyoubaku.az</span>
+          </div>
+        </div>
+        <div>
+          <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+            Social
+          </div>
+          <div class="mt-3 flex items-center gap-4">
+            <a href="https://www.instagram.com" aria-label="Instagram"
+              class="rounded-full border border-chocolate/30 p-2">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="4" y="4" width="16" height="16" rx="5" />
+                <circle cx="12" cy="12" r="3.5" />
+                <circle cx="17" cy="7" r="1" />
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com" aria-label="TikTok" class="rounded-full border border-chocolate/30 p-2">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 5c1 2 2.5 3 5 3" />
+                <path d="M12 4v9.5a3.5 3.5 0 1 1-3-3.46" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 text-center text-xs text-chocolate/50">
+        &copy; 2025 Me & You Baku &bull; Crafted with care
+      </div>
+    </div>
+  </footer>
+  <script src="me&you.js"></script>
+</body>
+
+</html>

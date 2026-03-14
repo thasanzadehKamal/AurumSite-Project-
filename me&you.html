@@ -5,11 +5,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Me & You Baku</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="me&you.css">
+  <style>
+    body.theme-dark {
+      background: #1c1510;
+      color: #e8d5c0;
+    }
+    body.theme-dark .bg-parchment,
+    body.theme-dark .bg-foam,
+    body.theme-dark [class*="bg-parchment/"],
+    body.theme-dark [class*="bg-foam/"] {
+      background-color: #241a13 !important;
+    }
+    body.theme-dark .text-espresso,
+    body.theme-dark .text-chocolate,
+    body.theme-dark .text-roasted,
+    body.theme-dark [class*="text-chocolate/"],
+    body.theme-dark [class*="text-roasted/"] {
+      color: #e8d5c0 !important;
+    }
+    body.theme-dark .border-foam,
+    body.theme-dark .border-chocolate,
+    body.theme-dark [class*="border-foam/"],
+    body.theme-dark [class*="border-chocolate/"] {
+      border-color: rgba(232, 213, 192, 0.25) !important;
+    }
+    [data-lang][data-active="true"] {
+      background: #8B5E3C;
+      color: #E8D5C0;
+      border-color: #8B5E3C;
+    }
+    [data-lang-panel].is-open {
+      display: block;
+    }
+  </style>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="font-sans">
+<body class="font-sans theme-dark">
   <header id="top" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
     <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
       <a href="#top" class="text-left">
@@ -20,10 +53,10 @@
       </a>
 
       <div class="hidden items-center gap-8 text-sm md:flex">
-        <a href="#about" class="text-chocolate/80 transition hover:text-espresso">About</a>
-        <a href="#menu" class="text-chocolate/80 transition hover:text-espresso">Menu</a>
-        <a href="#gallery" class="text-chocolate/80 transition hover:text-espresso">Gallery</a>
-        <a href="#reserve" class="text-chocolate/80 transition hover:text-espresso">Reserve</a>
+        <a href="#about" class="text-chocolate/80 transition hover:text-espresso" data-i18n="nav_about">About</a>
+        <a href="#menu" class="text-chocolate/80 transition hover:text-espresso" data-i18n="nav_menu">Menu</a>
+        <a href="#gallery" class="text-chocolate/80 transition hover:text-espresso" data-i18n="nav_gallery">Gallery</a>
+        <a href="#reserve" class="text-chocolate/80 transition hover:text-espresso" data-i18n="nav_reserve">Reserve</a>
       </div>
 
       <div class="hidden items-center gap-4 md:flex">
@@ -37,7 +70,32 @@
         </a>
         <a href="#reserve"
           class="rounded-full bg-espresso px-5 py-2 text-sm uppercase tracking-widest text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
-          aria-label="Reserve a table">Reserve a table</a>
+          aria-label="Reserve a table" data-i18n="cta_reserve">Reserve a table</a>
+        <div class="relative" data-lang-switch>
+          <button type="button"
+            class="flex items-center gap-2 rounded-full border border-chocolate/40 px-4 py-2 text-[11px] uppercase tracking-[0.25em] text-chocolate transition hover:border-chocolate"
+            data-lang-toggle aria-haspopup="true" aria-expanded="false">
+            <span data-lang-label>EN</span>
+            <span class="text-[10px]">▼</span>
+          </button>
+          <div
+            class="absolute right-0 mt-2 hidden w-32 rounded-[2px] border border-chocolate/30 bg-parchment/95 p-2 text-xs uppercase tracking-[0.25em] text-espresso shadow-soft backdrop-blur"
+            data-lang-panel>
+            <button type="button" class="w-full rounded-[2px] px-3 py-2 text-left hover:bg-foam/70" data-lang="az"
+              aria-label="Switch to Azerbaijani">AZ</button>
+            <button type="button" class="w-full rounded-[2px] px-3 py-2 text-left hover:bg-foam/70" data-lang="ru"
+              aria-label="Switch to Russian">RU</button>
+            <button type="button" class="w-full rounded-[2px] px-3 py-2 text-left hover:bg-foam/70" data-lang="en"
+              aria-label="Switch to English">EN</button>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="rounded-full border border-chocolate/40 px-4 py-2 text-[11px] uppercase tracking-[0.25em] text-chocolate transition hover:border-chocolate"
+          data-theme-toggle
+        >
+          Dark mode
+        </button>
       </div>
 
       <button class="md:hidden" aria-label="Open menu" data-mobile-open>
@@ -60,12 +118,37 @@
         </button>
       </div>
       <div id="mobile-section" class="flex flex-col gap-6 bg-espresso/85 backdrop-blur-lg px-6 pt-10 text-2xl">
-        <a href="#about" class="border-b border-foam/20 pb-3" data-mobile-link>About</a>
-        <a href="#menu" class="border-b border-foam/20 pb-3" data-mobile-link>Menu</a>
-        <a href="#gallery" class="border-b border-foam/20 pb-3" data-mobile-link>Gallery</a>
-        <a href="#reserve" class="border-b border-foam/20 pb-3" data-mobile-link>Reserve</a>
+        <a href="#about" class="border-b border-foam/20 pb-3" data-mobile-link data-i18n="nav_about">About</a>
+        <a href="#menu" class="border-b border-foam/20 pb-3" data-mobile-link data-i18n="nav_menu">Menu</a>
+        <a href="#gallery" class="border-b border-foam/20 pb-3" data-mobile-link data-i18n="nav_gallery">Gallery</a>
+        <a href="#reserve" class="border-b border-foam/20 pb-3" data-mobile-link data-i18n="nav_reserve">Reserve</a>
         <a href="#reserve" class="mt-6 rounded-full bg-foam px-6 py-3 text-sm uppercase tracking-[0.3em] text-espresso"
-          data-mobile-link>Reserve a table</a>
+          data-mobile-link data-i18n="cta_reserve">Reserve a table</a>
+        <div class="relative mt-6" data-lang-switch>
+          <button type="button"
+            class="flex w-full items-center justify-between rounded-full border border-foam/40 px-6 py-3 text-xs uppercase tracking-[0.3em]"
+            data-lang-toggle aria-haspopup="true" aria-expanded="false">
+            <span data-lang-label>EN</span>
+            <span class="text-[10px]">▼</span>
+          </button>
+          <div
+            class="absolute right-0 mt-2 hidden w-full rounded-[2px] border border-foam/30 bg-espresso/90 p-2 text-xs uppercase tracking-[0.3em] text-foam shadow-soft backdrop-blur"
+            data-lang-panel>
+            <button type="button" class="w-full rounded-[2px] px-4 py-2 text-left hover:bg-foam/10" data-lang="az"
+              aria-label="Switch to Azerbaijani">AZ</button>
+            <button type="button" class="w-full rounded-[2px] px-4 py-2 text-left hover:bg-foam/10" data-lang="ru"
+              aria-label="Switch to Russian">RU</button>
+            <button type="button" class="w-full rounded-[2px] px-4 py-2 text-left hover:bg-foam/10" data-lang="en"
+              aria-label="Switch to English">EN</button>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="rounded-full border border-foam/40 px-6 py-3 text-xs uppercase tracking-[0.3em] text-foam"
+          data-theme-toggle
+        >
+          Dark mode
+        </button>
       </div>
     </div>
   </header>
@@ -76,32 +159,32 @@
       <div
         class="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-20 pt-16 lg:grid-cols-[1.05fr_1fr]">
         <div class="space-y-8">
-          <div class="font-accent text-sm uppercase tracking-[0.4em] text-roasted">
+          <div class="font-accent text-sm uppercase tracking-[0.4em] text-roasted" data-i18n="hero_kicker">
             Specialty coffee & brunch
           </div>
           <h1 class="font-display text-4xl italic leading-tight text-espresso sm:text-5xl lg:text-[72px]">
             <span class="block">
-              <span class="word-reveal mr-2" style="animation-delay: 0.1s">Some</span>
-              <span class="word-reveal mr-2" style="animation-delay: 0.22s">moments</span>
-              <span class="word-reveal mr-2" style="animation-delay: 0.34s">deserve</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.1s" data-i18n="hero_word_1">Some</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.22s" data-i18n="hero_word_2">moments</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.34s" data-i18n="hero_word_3">deserve</span>
             </span>
             <span class="block">
-              <span class="word-reveal mr-2" style="animation-delay: 0.46s">a</span>
-              <span class="word-reveal mr-2" style="animation-delay: 0.58s">slow</span>
-              <span class="word-reveal mr-2" style="animation-delay: 0.7s">morning.</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.46s" data-i18n="hero_word_4">a</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.58s" data-i18n="hero_word_5">slow</span>
+              <span class="word-reveal mr-2" style="animation-delay: 0.7s" data-i18n="hero_word_6">morning.</span>
             </span>
           </h1>
-          <p class="max-w-lg text-base text-chocolate/70">
+          <p class="max-w-lg text-base text-chocolate/70" data-i18n="hero_body">
             Specialty coffee & brunch in the heart of Baku. A room for soft
             mornings, slow sips, and the kind of conversation that lingers.
           </p>
           <div class="flex flex-wrap gap-4">
             <a href="#menu"
               class="rounded-full border border-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-espresso transition duration-300 hover:scale-[1.02] hover:bg-espresso hover:text-foam"
-              aria-label="Explore menu">Explore menu</a>
+              aria-label="Explore menu" data-i18n="cta_menu">Explore menu</a>
             <a href="#reserve"
               class="rounded-full bg-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
-              aria-label="Reserve a table">Reserve a table</a>
+              aria-label="Reserve a table" data-i18n="cta_reserve">Reserve a table</a>
           </div>
           <div class="flex items-center gap-4 text-chocolate/60">
             <div class="h-14 w-[1px] bg-chocolate/30"></div>
@@ -129,43 +212,45 @@
 
     <section id="about" class="bg-espresso text-foam">
       <div class="mx-auto max-w-6xl px-5 py-20 text-center reveal">
-        <p class="font-display text-3xl italic sm:text-4xl lg:text-5xl">
+        <p class="font-display text-3xl italic sm:text-4xl lg:text-5xl" data-i18n="about_quote">
           "We built this place for two. Or just for you."
         </p>
         <div class="mt-10 flex flex-wrap justify-center gap-8 text-sm uppercase tracking-[0.3em] text-foam/70">
-          <div><span class="text-base">?</span> Specialty Coffee</div>
-          <div><span class="text-base">??</span> Fresh Brunch Daily</div>
-          <div><span class="text-base">??</span> Baku, AZ</div>
+            <div><span class="text-base">&bull;</span> <span data-i18n="about_bullet_1">Specialty Coffee</span></div>
+            <div><span class="text-base">&bull;</span> <span data-i18n="about_bullet_2">Fresh Brunch Daily</span></div>
+            <div><span class="text-base">&bull;</span> <span data-i18n="about_bullet_3">Baku, Azerbaijan</span></div>
         </div>
       </div>
       <div class="overflow-hidden border-t border-foam/10 pb-6">
         <div
           class="marquee-track flex w-[200%] gap-6 whitespace-nowrap px-5 text-xs uppercase tracking-[0.4em] text-foam/60">
-          <span>LATTE &bull; FLAT WHITE &bull; COLD BREW &bull; EGGS BENEDICT &bull; CROISSANT &bull;
-            MATCHA &bull; POUR OVER &bull;</span>
-          <span>LATTE &bull; FLAT WHITE &bull; COLD BREW &bull; EGGS BENEDICT &bull; CROISSANT &bull;
-            MATCHA &bull; POUR OVER &bull;</span>
+          <span data-i18n="marquee">
+            LATTE &bull; FLAT WHITE &bull; COLD BREW &bull; EGGS BENEDICT &bull; CROISSANT &bull; MATCHA &bull; POUR OVER &bull;
+          </span>
+          <span data-i18n="marquee">
+            LATTE &bull; FLAT WHITE &bull; COLD BREW &bull; EGGS BENEDICT &bull; CROISSANT &bull; MATCHA &bull; POUR OVER &bull;
+          </span>
         </div>
       </div>
     </section>
 
     <section id="menu" class="mx-auto max-w-6xl px-5 py-20 reveal">
       <div class="mb-10">
-        <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted">
+        <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted" data-i18n="menu_kicker">
           What we brew
         </p>
-        <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl">
+        <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl" data-i18n="menu_title">
           What we brew
         </h2>
       </div>
 
       <div class="relative mb-10 border-b border-foam" data-tabs>
         <div class="flex flex-wrap gap-8 text-sm uppercase tracking-[0.3em]">
-          <button class="pb-4 text-espresso" data-tab="Coffee">Coffee</button>
-          <button class="pb-4 text-chocolate/50" data-tab="Brunch">
+          <button class="pb-4 text-espresso" data-tab="Coffee" data-i18n="tab_coffee">Coffee</button>
+          <button class="pb-4 text-chocolate/50" data-tab="Brunch" data-i18n="tab_brunch">
             Brunch
           </button>
-          <button class="pb-4 text-chocolate/50" data-tab="Desserts">
+          <button class="pb-4 text-chocolate/50" data-tab="Desserts" data-i18n="tab_desserts">
             Desserts
           </button>
         </div>
@@ -176,10 +261,10 @@
     </section>
     <section id="gallery" class="mx-auto max-w-6xl px-5 py-20 reveal">
       <div class="mb-10">
-        <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted">
+        <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted" data-i18n="gallery_kicker">
           A corner of your own
         </p>
-        <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl">
+        <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl" data-i18n="gallery_title">
           A corner of your own
         </h2>
       </div>
@@ -192,7 +277,7 @@
           <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
           <div
             class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Evening glow</span>
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_1">Evening glow</span>
           </div>
         </div>
         <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
@@ -203,7 +288,7 @@
           <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
           <div
             class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Warm hands, warm cups</span>
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_2">Warm hands, warm cups</span>
           </div>
         </div>
         <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
@@ -214,7 +299,7 @@
           <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
           <div
             class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Morning pastry</span>
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_3">Morning pastry</span>
           </div>
         </div>
         <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
@@ -225,7 +310,7 @@
           <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
           <div
             class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Brunch light</span>
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_4">Brunch light</span>
           </div>
         </div>
         <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
@@ -236,7 +321,7 @@
           <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
           <div
             class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Sweet finish</span>
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_5">Sweet finish</span>
           </div>
         </div>
         <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
@@ -247,24 +332,24 @@
           <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
           <div
             class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam">Window whispers</span>
+            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_6">Window whispers</span>
           </div>
         </div>
       </div>
       <div class="mt-10 flex items-center justify-between border-t border-foam pt-6 text-sm text-chocolate/70">
-        <span>The light is always better near the window.</span>
-        <a href="https://www.instagram.com" class="font-accent uppercase tracking-[0.3em] text-roasted">Follow us
-          @meandyoubaku</a>
+        <span data-i18n="gallery_note">The light is always better near the window.</span>
+        <a href="https://www.instagram.com" class="font-accent uppercase tracking-[0.3em] text-roasted"
+          data-i18n="gallery_follow">Follow us @meandyoubaku</a>
       </div>
     </section>
 
     <section class="bg-foam">
       <div class="mx-auto max-w-6xl px-5 py-20 reveal">
         <div class="mb-10">
-          <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted">
+          <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted" data-i18n="exp_kicker">
             The experience
           </p>
-          <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl">
+          <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl" data-i18n="exp_title">
             The experience
           </h2>
         </div>
@@ -280,8 +365,8 @@
                 <path d="M10 6c0 1.5 2 1.5 2 3" />
               </svg>
             </div>
-            <h3 class="mt-6 font-serif text-xl text-espresso">Morning Ritual</h3>
-            <p class="mt-3 text-sm text-chocolate/70">
+            <h3 class="mt-6 font-serif text-xl text-espresso" data-i18n="exp_card_1_title">Morning Ritual</h3>
+            <p class="mt-3 text-sm text-chocolate/70" data-i18n="exp_card_1_body">
               Daily from 08:00. Fresh-baked croissants, single origin pour-overs.
             </p>
           </div>
@@ -296,8 +381,8 @@
                 <path d="M17 4l2 2" />
               </svg>
             </div>
-            <h3 class="mt-6 font-serif text-xl text-espresso">Brunch Weekends</h3>
-            <p class="mt-3 text-sm text-chocolate/70">
+            <h3 class="mt-6 font-serif text-xl text-espresso" data-i18n="exp_card_2_title">Brunch Weekends</h3>
+            <p class="mt-3 text-sm text-chocolate/70" data-i18n="exp_card_2_body">
               Sat & Sun until 15:00. Extended menu, live acoustic background music.
             </p>
           </div>
@@ -312,8 +397,8 @@
                 <path d="M15 16v4" />
               </svg>
             </div>
-            <h3 class="mt-6 font-serif text-xl text-espresso">Private Corner</h3>
-            <p class="mt-3 text-sm text-chocolate/70">
+            <h3 class="mt-6 font-serif text-xl text-espresso" data-i18n="exp_card_3_title">Private Corner</h3>
+            <p class="mt-3 text-sm text-chocolate/70" data-i18n="exp_card_3_body">
               Reserve the window table for slow celebrations.
             </p>
           </div>
@@ -330,81 +415,83 @@
         </div>
         <div>
           <div class="mb-6">
-            <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted">
+            <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted" data-i18n="reserve_kicker">
               Reserve
             </p>
-            <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl">
+            <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl" data-i18n="reserve_title">
               Reserve your table
             </h2>
-            <p class="mt-3 text-sm text-chocolate/70">
+            <p class="mt-3 text-sm text-chocolate/70" data-i18n="reserve_body">
               Tell us the time. We'll keep it warm.
             </p>
           </div>
 
           <form class="grid gap-4">
-            <input type="text" placeholder="Name" aria-label="Name"
+            <input type="text" placeholder="Name" aria-label="Name" data-i18n-placeholder="form_name" data-i18n-aria="form_name"
               class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
             <div class="grid gap-4 sm:grid-cols-2">
-              <input type="date" aria-label="Date"
+              <input type="date" aria-label="Date" data-i18n-aria="form_date"
                 class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
-              <input type="time" aria-label="Time"
+              <input type="time" aria-label="Time" data-i18n-aria="form_time"
                 class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
             </div>
             <input type="number" placeholder="Number of guests" aria-label="Number of guests"
+              data-i18n-placeholder="form_guests" data-i18n-aria="form_guests"
               class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
             <textarea placeholder="Note (optional)" aria-label="Note" rows="3"
+              data-i18n-placeholder="form_note" data-i18n-aria="form_note"
               class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm"></textarea>
             <button type="submit"
               class="rounded-full bg-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
-              aria-label="Submit reservation">
+              aria-label="Submit reservation" data-i18n="form_submit">
               Reserve now
             </button>
           </form>
 
           <div class="mt-10 grid gap-6 text-sm text-chocolate/70">
             <div>
-              <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+              <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="label_address">
                 Address
               </div>
               <p>Vladislav Plotnikov küçəsi, Baku 1007</p>
             </div>
             <div>
-              <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+              <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="label_phone">
                 Phone
               </div>
               <p>050 578 60 29</p>
             </div>
             <div>
-              <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+              <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="label_hours">
                 Working hours
               </div>
                 <div class="mt-2 rounded-[2px] border border-foam bg-foam/60 p-4 text-xs">
                   <div class="flex items-center justify-between">
-                    <span>Monday</span>
+                    <span data-i18n="day_mon">Monday</span>
                     <span>8:00 AM &ndash; 12:00 AM</span>
                   </div>
                   <div class="mt-2 flex items-center justify-between">
-                    <span>Tuesday</span>
+                    <span data-i18n="day_tue">Tuesday</span>
                     <span>8:00 AM &ndash; 12:00 AM</span>
                   </div>
                   <div class="mt-2 flex items-center justify-between">
-                    <span>Wednesday</span>
+                    <span data-i18n="day_wed">Wednesday</span>
                     <span>8:00 AM &ndash; 12:00 AM</span>
                   </div>
                   <div class="mt-2 flex items-center justify-between">
-                    <span>Thursday</span>
+                    <span data-i18n="day_thu">Thursday</span>
                     <span>8:00 AM &ndash; 12:00 AM</span>
                   </div>
                   <div class="mt-2 flex items-center justify-between">
-                    <span>Friday</span>
+                    <span data-i18n="day_fri">Friday</span>
                     <span>8:00 AM &ndash; 12:00 AM</span>
                   </div>
                   <div class="mt-2 flex items-center justify-between">
-                    <span>Saturday</span>
+                    <span data-i18n="day_sat">Saturday</span>
                     <span>8:00 AM &ndash; 12:00 AM</span>
                   </div>
                   <div class="mt-2 flex items-center justify-between">
-                    <span>Sunday</span>
+                    <span data-i18n="day_sun">Sunday</span>
                     <span>8:00 AM &ndash; 12:00 AM</span>
                   </div>
                 </div>
@@ -428,18 +515,18 @@
       </div>
       <div class="mt-10 grid gap-8 text-sm text-chocolate/70 md:grid-cols-3">
         <div>
-          <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+          <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="footer_nav">
             Navigate
           </div>
           <div class="mt-3 flex flex-col gap-2">
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#reserve">Reserve</a>
+            <a href="#about" data-i18n="nav_about">About</a>
+            <a href="#menu" data-i18n="nav_menu">Menu</a>
+            <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+            <a href="#reserve" data-i18n="nav_reserve">Reserve</a>
           </div>
         </div>
         <div>
-          <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+          <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="footer_contact">
             Contact
           </div>
           <div class="mt-3 flex flex-col gap-2">
@@ -449,7 +536,7 @@
           </div>
         </div>
         <div>
-          <div class="font-accent uppercase tracking-[0.3em] text-roasted">
+          <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="footer_social">
             Social
           </div>
           <div class="mt-3 flex items-center gap-4">
@@ -470,7 +557,7 @@
           </div>
         </div>
       </div>
-      <div class="mt-10 text-center text-xs text-chocolate/50">
+      <div class="mt-10 text-center text-xs text-chocolate/50" data-i18n="footer_copy">
         &copy; 2025 Me & You Baku &bull; Crafted with care
       </div>
     </div>

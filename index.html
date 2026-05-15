@@ -1,560 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="az">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cafe Baku</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body.theme-dark {
-      background: #1c1510;
-      color: #e8d5c0;
-    }
-    body.theme-dark .bg-parchment,
-    body.theme-dark .bg-foam,
-    body.theme-dark [class*="bg-parchment/"],
-    body.theme-dark [class*="bg-foam/"] {
-      background-color: #6d5748 !important;
-    }
-    body.theme-dark .text-espresso,
-    body.theme-dark .text-chocolate,
-    body.theme-dark .text-roasted,
-    body.theme-dark [class*="text-chocolate/"],
-    body.theme-dark [class*="text-roasted/"] {
-      color: #e8d5c0 !important;
-    }
-    body.theme-dark .border-foam,
-    body.theme-dark .border-chocolate,
-    body.theme-dark [class*="border-foam/"],
-    body.theme-dark [class*="border-chocolate/"] {
-      border-color: rgba(232, 213, 192, 0.25) !important;
-    }
-    [data-lang][data-active="true"] {
-      background: #8B5E3C;
-      color: #E8D5C0;
-      border-color: #8B5E3C;
-    }
-    [data-lang-panel].is-open {
-      display: block;
-    }
-  </style>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Coffy Coffee — Bakı</title>
+  <meta name="description" content="Coffy Coffee — Bakının ürəyindəki premium qəhvə məkanı. 56 Qarabağ küçəsi, Bakı. İş saatları: 23:00-a qədər." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
+<body>
 
-<body class="font-sans theme-dark">
-  <header id="top" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-      <a href="#top" class="text-left">
-        <div class="font-display text-2xl italic tracking-wide">Cafe</div>
-        <div class="font-accent text-[11px] uppercase tracking-[0.35em]">
-          Baku
-        </div>
+  <!-- HEADER -->
+  <header id="site-header">
+    <nav class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Coffy Coffee Ana Səhifə">
+        <span class="nav-logo-main">Coffy</span>
+        <span class="nav-logo-sub">Coffee · Baku</span>
       </a>
-
-      <div class="hidden items-center gap-8 text-sm md:flex">
-        <a href="#about" class="text-chocolate/80 transition hover:text-espresso" data-i18n="nav_about">About</a>
-        <a href="#menu" class="text-chocolate/80 transition hover:text-espresso" data-i18n="nav_menu">Menu</a>
-        <a href="#gallery" class="text-chocolate/80 transition hover:text-espresso" data-i18n="nav_gallery">Gallery</a>
-        <a href="#reserve" class="text-chocolate/80 transition hover:text-espresso" data-i18n="nav_reserve">Reserve</a>
+      <div class="nav-links">
+        <a href="#about">Haqqımızda</a>
+        <a href="#menu">Menyu</a>
+        <a href="#gallery">Qalereya</a>
+        <a href="#contact">Əlaqə</a>
       </div>
-
-      <div class="hidden items-center gap-4 md:flex">
-        <a href="#" aria-label="Instagram"
-          class="rounded-full border border-chocolate/30 p-2 text-chocolate transition hover:border-chocolate">
-          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="4" y="4" width="16" height="16" rx="5" />
-            <circle cx="12" cy="12" r="3.5" />
-            <circle cx="17" cy="7" r="1" />
-          </svg>
-        </a>
-        <a href="#reserve"
-          class="rounded-full bg-espresso px-5 py-2 text-sm uppercase tracking-widest text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
-          aria-label="Reserve a table" data-i18n="cta_reserve">Reserve a table</a>
-        <div class="relative" data-lang-switch>
-          <button type="button"
-            class="flex items-center gap-2 rounded-full border border-chocolate/40 px-4 py-2 text-[11px] uppercase tracking-[0.25em] text-chocolate transition hover:border-chocolate"
-            data-lang-toggle aria-haspopup="true" aria-expanded="false">
-            <span data-lang-label>EN</span>
-            <span class="text-[10px]">▼</span>
-          </button>
-          <div
-            class="absolute right-0 mt-2 hidden w-32 rounded-[2px] border border-chocolate/30 bg-parchment/95 p-2 text-xs uppercase tracking-[0.25em] text-espresso shadow-soft backdrop-blur"
-            data-lang-panel>
-            <button type="button" class="w-full rounded-[2px] px-3 py-2 text-left hover:bg-foam/70" data-lang="az"
-              aria-label="Switch to Azerbaijani">AZ</button>
-            <button type="button" class="w-full rounded-[2px] px-3 py-2 text-left hover:bg-foam/70" data-lang="ru"
-              aria-label="Switch to Russian">RU</button>
-            <button type="button" class="w-full rounded-[2px] px-3 py-2 text-left hover:bg-foam/70" data-lang="en"
-              aria-label="Switch to English">EN</button>
-          </div>
-        </div>
-        <button
-          type="button"
-          class="rounded-full border border-chocolate/40 px-4 py-2 text-[11px] uppercase tracking-[0.25em] text-chocolate transition hover:border-chocolate"
-          data-theme-toggle
-        >
-          Dark mode
-        </button>
-      </div>
-
-      <button class="md:hidden" aria-label="Open menu" data-mobile-open>
-        <span class="mobile-menu-line block h-[2px] w-7"></span>
-        <span class="mobile-menu-line mt-2 block h-[2px] w-7"></span>
+      <a href="https://www.instagram.com/coffycoffeebaku/" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+        @coffycoffeebaku
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menyunu aç">
+        <span></span><span></span><span></span>
       </button>
     </nav>
-
-    <div
-      class="fixed inset-0 z-40 bg-espresso/20 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
-      data-mobile-overlay></div>
-    <div
-      class="fixed inset-0 z-50 translate-x-full bg-espresso/95 text-foam transition-transform duration-300 md:hidden"
-      data-mobile-panel>
-      <div class="flex items-center justify-between px-6 py-5">
-        <div class="font-display text-2xl italic">Me & You</div>
-        <button aria-label="Close menu" data-mobile-close>
-          <span class="block h-[2px] w-8 rotate-45 bg-[#8c765c]"></span>
-          <span class="-mt-[2px] block h-[2px] w-8 -rotate-45 bg-[#8c765c]"></span>
-        </button>
-      </div>
-      <div id="mobile-section" class="flex flex-col gap-6 bg-espresso/85 backdrop-blur-lg px-6 pt-10 text-2xl">
-        <a href="#about" class="border-b border-foam/20 pb-3" data-mobile-link data-i18n="nav_about">About</a>
-        <a href="#menu" class="border-b border-foam/20 pb-3" data-mobile-link data-i18n="nav_menu">Menu</a>
-        <a href="#gallery" class="border-b border-foam/20 pb-3" data-mobile-link data-i18n="nav_gallery">Gallery</a>
-        <a href="#reserve" class="border-b border-foam/20 pb-3" data-mobile-link data-i18n="nav_reserve">Reserve</a>
-        <a href="#reserve" class="mt-6 rounded-full bg-foam px-6 py-3 text-sm uppercase tracking-[0.3em] text-espresso"
-          data-mobile-link data-i18n="cta_reserve">Reserve a table</a>
-        <div class="relative mt-6" data-lang-switch>
-          <button type="button"
-            class="flex w-full items-center justify-between rounded-full border border-foam/40 px-6 py-3 text-xs uppercase tracking-[0.3em]"
-            data-lang-toggle aria-haspopup="true" aria-expanded="false">
-            <span data-lang-label>EN</span>
-            <span class="text-[10px]">▼</span>
-          </button>
-          <div
-            class="absolute right-0 mt-2 hidden w-full rounded-[2px] border border-foam/30 bg-espresso/90 p-2 text-xs uppercase tracking-[0.3em] text-foam shadow-soft backdrop-blur"
-            data-lang-panel>
-            <button type="button" class="w-full rounded-[2px] px-4 py-2 text-left hover:bg-foam/10" data-lang="az"
-              aria-label="Switch to Azerbaijani">AZ</button>
-            <button type="button" class="w-full rounded-[2px] px-4 py-2 text-left hover:bg-foam/10" data-lang="ru"
-              aria-label="Switch to Russian">RU</button>
-            <button type="button" class="w-full rounded-[2px] px-4 py-2 text-left hover:bg-foam/10" data-lang="en"
-              aria-label="Switch to English">EN</button>
-          </div>
-        </div>
-        <button
-          type="button"
-          class="rounded-full border border-foam/40 px-6 py-3 text-xs uppercase tracking-[0.3em] text-foam"
-          data-theme-toggle
-        >
-          Dark mode
-        </button>
-      </div>
-    </div>
   </header>
 
-  <main class="pt-24">
-    <section class="relative overflow-hidden">
-      <div class="hero-noise absolute inset-0"></div>
-      <div
-        class="relative z-10 mx-auto grid min-h-[100svh] max-w-6xl items-center gap-12 px-5 pb-20 pt-16 lg:grid-cols-[1.05fr_1fr]">
-        <div class="space-y-8">
-          <h1 class="font-display text-4xl italic leading-tight text-espresso sm:text-5xl lg:text-[72px]">
-            <span class="block">
-              <span class="word-reveal mr-2" style="animation-delay: 0.1s" data-i18n="hero_word_1">Some</span>
-              <span class="word-reveal mr-2" style="animation-delay: 0.22s" data-i18n="hero_word_2">moments</span>
-              <span class="word-reveal mr-2" style="animation-delay: 0.34s" data-i18n="hero_word_3">deserve</span>
-            </span>
-            <span class="block">
-              <span class="word-reveal mr-2" style="animation-delay: 0.46s" data-i18n="hero_word_4">a</span>
-              <span class="word-reveal mr-2" style="animation-delay: 0.58s" data-i18n="hero_word_5">slow</span>
-              <span class="word-reveal mr-2" style="animation-delay: 0.7s" data-i18n="hero_word_6">morning.</span>
-            </span>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobil menyu">
+    <button class="mobile-close" id="mobile-close" aria-label="Menyunu bağla">✕</button>
+    <a href="#about">Haqqımızda</a>
+    <a href="#menu">Menyu</a>
+    <a href="#gallery">Qalereya</a>
+    <a href="#contact">Əlaqə</a>
+    <a href="https://www.instagram.com/coffycoffeebaku/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-img"></div>
+      <div class="hero-grain"></div>
+
+      <div class="hero-inner">
+        <div>
+          <p class="hero-tag">Specialty Coffee · Bakı</p>
+          <h1 class="hero-h1">
+            Hər qurtumda<br/>
+            bir <em>hekayə</em> var.
           </h1>
-          <p class="max-w-lg text-base text-chocolate/70" data-i18n="hero_body">
-            Specialty coffee & brunch in the heart of Baku. A room for soft
-            mornings, slow sips, and the kind of conversation that lingers.
+          <p class="hero-p">
+            Coffy Coffee — Bakının ürəyindəki premium qəhvə məkanı.
+            Seçilmiş taxıllar, mükəmməl dəmləmə, unutulmaz atmosfer.
           </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#menu"
-              class="rounded-full border border-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-espresso transition duration-300 hover:scale-[1.02] hover:bg-espresso hover:text-foam"
-              aria-label="Explore menu" data-i18n="cta_menu">Explore menu</a>
-            <a href="#reserve"
-              class="rounded-full bg-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
-              aria-label="Reserve a table" data-i18n="cta_reserve">Reserve a table</a>
-          </div>
-          <div class="flex items-center gap-4 text-chocolate/60">
-            <div class="h-14 w-[1px] bg-chocolate/30"></div>
-            <div class="relative h-14 w-2">
-              <span class="scroll-dot absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-roasted"></span>
-            </div>
+          <div class="hero-actions">
+            <a href="#menu" class="btn-primary" id="hero-menu-btn">Menyuya bax</a>
+            <a href="#contact" class="btn-outline" id="hero-contact-btn">Bizi tap</a>
           </div>
         </div>
-        <div class="relative">
-          <div class="vignette shadow-soft">
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-cup-wrap">
+            <div class="hero-cup-glow"></div>
+            <div class="steam">
+              <span class="steam-line"></span>
+              <span class="steam-line"></span>
+              <span class="steam-line"></span>
+            </div>
             <img
-              src="https://images.unsplash.com/photo-1751956066306-c5684cbcf385?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1600"
-              alt="Warm cafe interior" class="h-[420px] w-full rounded-[2px] object-cover sm:h-[520px]" />
+              src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80"
+              alt="Premium coffee cup"
+              class="hero-cup-img"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <div class="scroll-wheel">
+          <span class="scroll-dot-inner"></span>
+        </div>
+        <span>Aşağı</span>
+      </div>
     </section>
 
-    <div class="mx-auto max-w-6xl px-5">
-      <svg viewBox="0 0 600 50" class="h-10 w-full text-roasted/50" fill="none" stroke="currentColor" stroke-width="1.2"
-        aria-hidden="true">
-        <path d="M10 25c40 10 70-10 110 0s70 10 110 0 70-10 110 0 70 10 110 0 80-10 130 0" />
-      </svg>
+    <!-- MARQUEE -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Espresso</span><span>Flat White</span><span>Cold Brew</span>
+        <span>Cappuccino</span><span>Matcha</span><span>Pour Over</span>
+        <span>Tiramisu</span><span>Croissant</span><span>Shakshuka</span>
+        <span>Espresso</span><span>Flat White</span><span>Cold Brew</span>
+        <span>Cappuccino</span><span>Matcha</span><span>Pour Over</span>
+        <span>Tiramisu</span><span>Croissant</span><span>Shakshuka</span>
+      </div>
     </div>
 
-    <section id="about" class="bg-espresso text-foam">
-      <div class="mx-auto max-w-6xl px-5 py-20 text-center reveal">
-        <p class="font-display text-3xl italic sm:text-4xl lg:text-5xl" data-i18n="about_quote">
-          "We built this place for two. Or just for you."
-        </p>
-        <div class="mt-10 flex flex-wrap justify-center gap-8 text-sm uppercase tracking-[0.3em] text-foam/70">
-            <div><span class="text-base">&bull;</span> <span data-i18n="about_bullet_1">Specialty Coffee</span></div>
-            <div><span class="text-base">&bull;</span> <span data-i18n="about_bullet_2">Fresh Brunch Daily</span></div>
-            <div><span class="text-base">&bull;</span> <span data-i18n="about_bullet_3">Baku, Azerbaijan</span></div>
-        </div>
-      </div>
-      <div class="overflow-hidden border-t border-foam/10 pb-6">
-        <div
-          class="marquee-track flex w-[200%] gap-6 whitespace-nowrap px-5 text-xs uppercase tracking-[0.4em] text-foam/60">
-          <span data-i18n="marquee">
-            LATTE &bull; FLAT WHITE &bull; COLD BREW &bull; EGGS BENEDICT &bull; CROISSANT &bull; MATCHA &bull; POUR OVER &bull;
-          </span>
-          <span data-i18n="marquee">
-            LATTE &bull; FLAT WHITE &bull; COLD BREW &bull; EGGS BENEDICT &bull; CROISSANT &bull; MATCHA &bull; POUR OVER &bull;
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <section id="menu" class="mx-auto max-w-6xl px-5 py-20 reveal">
-      <div class="mb-10">
-        <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted" data-i18n="menu_kicker">
-          What we brew
-        </p>
-        <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl" data-i18n="menu_title">
-          What we brew
-        </h2>
-      </div>
-
-      <div class="relative mb-10 border-b border-foam" data-tabs>
-        <div class="flex flex-wrap gap-8 text-sm uppercase tracking-[0.3em]">
-          <button class="pb-4 text-espresso" data-tab="Coffee" data-i18n="tab_coffee">Coffee</button>
-          <button class="pb-4 text-chocolate/50" data-tab="Brunch" data-i18n="tab_brunch">
-            Brunch
-          </button>
-          <button class="pb-4 text-chocolate/50" data-tab="Desserts" data-i18n="tab_desserts">
-            Desserts
-          </button>
-        </div>
-        <span class="menu-indicator absolute bottom-0 left-0 h-[2px] bg-roasted" data-indicator></span>
-      </div>
-
-      <div class="grid gap-10 lg:grid-cols-2" data-menu-grid></div>
-    </section>
-    <section id="gallery" class="mx-auto max-w-6xl px-5 py-20 reveal">
-      <div class="mb-10">
-        <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted" data-i18n="gallery_kicker">
-          A corner of your own
-        </p>
-        <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl" data-i18n="gallery_title">
-          A corner of your own
-        </h2>
-      </div>
-      <div class="columns-1 gap-4 md:columns-2 lg:columns-3">
-        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-inner">
+        <div class="about-imgs reveal">
           <img
-            src="https://images.unsplash.com/photo-1751956066306-c5684cbcf385?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
-            alt="Cafe interior with warm lighting"
-            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
-          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
-          <div
-            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_1">Evening glow</span>
-          </div>
-        </div>
-        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
+            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=75"
+            alt="Coffy Coffee interior"
+            class="about-img-main"
+            loading="lazy"
+          />
           <img
-            src="https://images.unsplash.com/photo-1762657440603-2afa5580eaf8?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
-            alt="Hands holding coffee cup"
-            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
-          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
-          <div
-            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_2">Warm hands, warm cups</span>
-          </div>
+            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=75"
+            alt="Coffee being brewed"
+            class="about-img-accent"
+            loading="lazy"
+          />
         </div>
-        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
-          <img
-            src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
-            alt="Pastries and coffee flatlay"
-            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
-          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
-          <div
-            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_3">Morning pastry</span>
-          </div>
-        </div>
-        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
-          <img
-            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
-            alt="Brunch spread on a table"
-            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
-          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
-          <div
-            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_4">Brunch light</span>
-          </div>
-        </div>
-        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
-          <img
-            src="https://images.unsplash.com/photo-1768225385872-03945d45a0d3?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
-            alt="Tiramisu dessert"
-            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
-          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
-          <div
-            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_5">Sweet finish</span>
-          </div>
-        </div>
-        <div class="vignette group relative mb-4 break-inside-avoid overflow-hidden rounded-[2px]">
-          <img
-            src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1200"
-            alt="Cafe table by the window"
-            class="h-full w-full rounded-[2px] object-cover transition duration-500 group-hover:scale-[1.03]" />
-          <div class="absolute inset-0 bg-roasted/50 opacity-0 transition duration-500 group-hover:opacity-100"></div>
-          <div
-            class="absolute inset-0 flex items-end justify-start p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <span class="font-accent text-xs uppercase tracking-[0.3em] text-foam" data-i18n="gallery_cap_6">Window whispers</span>
-          </div>
-        </div>
-      </div>
-      <div class="mt-10 flex items-center justify-between border-t border-foam pt-6 text-sm text-chocolate/70">
-        <span data-i18n="gallery_note">The light is always better near the window.</span>
-        <a href="https://www.instagram.com" class="font-accent uppercase tracking-[0.3em] text-roasted"
-          data-i18n="gallery_follow">Follow us @Cafe</a>
-      </div>
-    </section>
-
-    <section class="bg-foam">
-      <div class="mx-auto max-w-6xl px-5 py-20 reveal">
-        <div class="mb-10">
-          <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted" data-i18n="exp_kicker">
-            The experience
-          </p>
-          <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl" data-i18n="exp_title">
-            The experience
+        <div class="about-text">
+          <p class="section-tag reveal">Bizim hekayəmiz</p>
+          <h2 class="section-title reveal reveal-delay-1">
+            Qəhvə — sadəcə<br/>bir içki deyil, <em>ritual</em>dır.
           </h2>
-        </div>
-        <div class="grid gap-6 md:grid-cols-3">
-          <div
-            class="rounded-[2px] border border-foam bg-parchment p-6 shadow-soft transition duration-500 hover:-translate-y-2 hover:shadow-glow">
-            <div class="text-roasted">
-              <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.2"
-                aria-hidden="true">
-                <path d="M4 10h10a4 4 0 0 1 0 8H6a2 2 0 0 1-2-2v-6z" />
-                <path d="M14 10h2a3 3 0 0 1 0 6h-2" />
-                <path d="M6 6c0 1.5 2 1.5 2 3" />
-                <path d="M10 6c0 1.5 2 1.5 2 3" />
-              </svg>
+          <p class="about-p reveal reveal-delay-2">
+            Coffy Coffee 56 Qarabağ küçəsindəki məkanı ilə Bakılılara premium qəhvə təcrübəsi yaşadır.
+            Hər fincan, dünyanın ən yaxşı taxıllarından, peşəkar baristalar tərəfindən hazırlanır.
+          </p>
+          <p class="about-p reveal reveal-delay-3">
+            Səhərin ilk qəhvəsi, günortanın sakit mülayimliyi, axşamın istiliyi —
+            biz hər məqam üçün buradayıq.
+          </p>
+          <div class="about-stats reveal reveal-delay-4">
+            <div>
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Specialty taxıl</div>
             </div>
-            <h3 class="mt-6 font-serif text-xl text-espresso" data-i18n="exp_card_1_title">Morning Ritual</h3>
-            <p class="mt-3 text-sm text-chocolate/70" data-i18n="exp_card_1_body">
-              Daily from 08:00. Fresh-baked croissants, single origin pour-overs.
-            </p>
-          </div>
-          <div
-            class="rounded-[2px] border border-foam bg-parchment p-6 shadow-soft transition duration-500 hover:-translate-y-2 hover:shadow-glow">
-            <div class="text-roasted">
-              <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.2"
-                aria-hidden="true">
-                <circle cx="12" cy="12" r="7" />
-                <path d="M12 9v4l3 2" />
-                <path d="M5 4l2 2" />
-                <path d="M17 4l2 2" />
-              </svg>
+            <div>
+              <div class="stat-num">∞</div>
+              <div class="stat-label">Xoş anlar</div>
             </div>
-            <h3 class="mt-6 font-serif text-xl text-espresso" data-i18n="exp_card_2_title">Brunch Weekends</h3>
-            <p class="mt-3 text-sm text-chocolate/70" data-i18n="exp_card_2_body">
-              Sat & Sun until 15:00. Extended menu, live acoustic background music.
-            </p>
-          </div>
-          <div
-            class="rounded-[2px] border border-foam bg-parchment p-6 shadow-soft transition duration-500 hover:-translate-y-2 hover:shadow-glow">
-            <div class="text-roasted">
-              <svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.2"
-                aria-hidden="true">
-                <path d="M4 20V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14" />
-                <path d="M4 16h16" />
-                <path d="M9 16v4" />
-                <path d="M15 16v4" />
-              </svg>
+            <div>
+              <div class="stat-num">23:00</div>
+              <div class="stat-label">Qapanır</div>
             </div>
-            <h3 class="mt-6 font-serif text-xl text-espresso" data-i18n="exp_card_3_title">Private Corner</h3>
-            <p class="mt-3 text-sm text-chocolate/70" data-i18n="exp_card_3_body">
-              Reserve the window table for slow celebrations.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="reserve" class="mx-auto max-w-6xl px-5 py-20 reveal">
-      <div class="grid gap-10 lg:grid-cols-[1fr_1.05fr]">
-        <div class="vignette shadow-soft">
-          <img
-            src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1400"
-            alt="Table by the window" class="h-full w-full rounded-[2px] object-cover" />
+    <!-- MENU -->
+    <section id="menu">
+      <div class="menu-inner">
+        <div class="menu-header">
+          <p class="section-tag reveal">Nə dəmləyirik</p>
+          <h2 class="section-title reveal reveal-delay-1">Bizim <em>Menyu</em></h2>
         </div>
+        <div class="tabs reveal reveal-delay-2">
+          <button class="tab-btn active" data-tab="Coffee" id="tab-coffee">Qəhvə</button>
+          <button class="tab-btn" data-tab="Brunch" id="tab-brunch">Brunç</button>
+          <button class="tab-btn" data-tab="Desserts" id="tab-desserts">Şirniyyat</button>
+        </div>
+        <div class="menu-grid reveal reveal-delay-3" id="menu-grid"></div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="gallery-inner">
+        <p class="section-tag reveal">Atmosfer</p>
+        <h2 class="section-title reveal reveal-delay-1">Sənin <em>küncün</em></h2>
+
+        <div class="gallery-grid reveal reveal-delay-2">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=75" alt="Coffy Coffee interyeri" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-cap">Axşam atmosferi</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=75" alt="Premium qəhvə" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-cap">Mükəmməl dəmləmə</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=700&q=75" alt="Pəncərə yanında masa" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-cap">Pəncərə küncü</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=75" alt="Cappuccino art" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-cap">Latte art</span></div>
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=700&q=75" alt="Şirniyyat" loading="lazy" />
+            <div class="gallery-overlay"><span class="gallery-cap">Şirin anlar</span></div>
+          </div>
+        </div>
+
+        <a href="https://www.instagram.com/coffycoffeebaku/" target="_blank" rel="noopener" class="gallery-insta reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+          Bizi izləyin @coffycoffeebaku
+        </a>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="exp-inner">
+        <p class="section-tag reveal">Niyə Coffy?</p>
+        <h2 class="section-title reveal reveal-delay-1">Fərqli <em>bir təcrübə</em></h2>
+        <div class="exp-cards">
+          <div class="exp-card reveal reveal-delay-1">
+            <div class="exp-icon">☕</div>
+            <h3 class="exp-card-title">Specialty Qəhvə</h3>
+            <p class="exp-card-desc">Dünya miqyasında seçilmiş specialty taxıllar, peşəkar baristalar tərəfindən həssaslıqla hazırlanır.</p>
+          </div>
+          <div class="exp-card reveal reveal-delay-2">
+            <div class="exp-icon">🌅</div>
+            <h3 class="exp-card-title">Hər Gün Açıq</h3>
+            <p class="exp-card-desc">Səhərin ilk işığından gecə 23:00-a qədər. Hər vaxt, hər məqam üçün buradayıq.</p>
+          </div>
+          <div class="exp-card reveal reveal-delay-3">
+            <div class="exp-icon">✨</div>
+            <h3 class="exp-card-title">Premium Atmosfer</h3>
+            <p class="exp-card-desc">Bakı mərkəzində rahat, estetik məkan. İş görüşmələri, dostlarla görüş, ya da tək anlar üçün.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact-inner">
         <div>
-          <div class="mb-6">
-            <p class="font-accent text-sm uppercase tracking-[0.35em] text-roasted" data-i18n="reserve_kicker">
-              Reserve
-            </p>
-            <h2 class="mt-3 font-display text-4xl italic text-espresso sm:text-5xl" data-i18n="reserve_title">
-              Reserve your table
-            </h2>
-            <p class="mt-3 text-sm text-chocolate/70" data-i18n="reserve_body">
-              Tell us the time. We'll keep it warm.
-            </p>
-          </div>
+          <p class="section-tag reveal">Bizi tapın</p>
+          <h2 class="section-title reveal reveal-delay-1">Əlaqə &amp; <em>Ünvan</em></h2>
 
-          <form class="grid gap-4">
-            <input type="text" placeholder="Name" aria-label="Name" data-i18n-placeholder="form_name" data-i18n-aria="form_name"
-              class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
-            <div class="grid gap-4 sm:grid-cols-2">
-              <input type="date" aria-label="Date" data-i18n-aria="form_date"
-                class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
-              <input type="time" aria-label="Time" data-i18n-aria="form_time"
-                class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
-            </div>
-            <input type="number" placeholder="Number of guests" aria-label="Number of guests"
-              data-i18n-placeholder="form_guests" data-i18n-aria="form_guests"
-              class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm" />
-            <textarea placeholder="Note (optional)" aria-label="Note" rows="3"
-              data-i18n-placeholder="form_note" data-i18n-aria="form_note"
-              class="rounded-[2px] border border-foam bg-parchment px-4 py-3 text-sm"></textarea>
-            <button type="submit"
-              class="rounded-full bg-espresso px-6 py-3 text-sm uppercase tracking-[0.3em] text-foam transition duration-300 hover:scale-[1.02] hover:bg-roasted"
-              aria-label="Submit reservation" data-i18n="form_submit">
-              Reserve now
-            </button>
-          </form>
-
-          <div class="mt-10 grid gap-6 text-sm text-chocolate/70">
-            <div>
-              <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="label_address">
-                Address
-              </div>
-              <p>Nizami küçəsi 12, Bakı, AZ1000, Azərbaycan</p>
-            </div>
-            <div>
-              <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="label_phone">
-                Phone
-              </div>
-              <p>+994-099-99-99/p>
-            </div>
-            <div>
-              <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="label_hours">
-                Working hours
-              </div>
-                <div class="mt-2 rounded-[2px] border border-foam bg-foam/60 p-4 text-xs">
-                  <div class="flex items-center justify-between">
-                    <span data-i18n="day_mon">Monday</span>
-                    <span>8:00 AM &ndash; 12:00 AM</span>
-                  </div>
-                  <div class="mt-2 flex items-center justify-between">
-                    <span data-i18n="day_tue">Tuesday</span>
-                    <span>8:00 AM &ndash; 12:00 AM</span>
-                  </div>
-                  <div class="mt-2 flex items-center justify-between">
-                    <span data-i18n="day_wed">Wednesday</span>
-                    <span>8:00 AM &ndash; 12:00 AM</span>
-                  </div>
-                  <div class="mt-2 flex items-center justify-between">
-                    <span data-i18n="day_thu">Thursday</span>
-                    <span>8:00 AM &ndash; 12:00 AM</span>
-                  </div>
-                  <div class="mt-2 flex items-center justify-between">
-                    <span data-i18n="day_fri">Friday</span>
-                    <span>8:00 AM &ndash; 12:00 AM</span>
-                  </div>
-                  <div class="mt-2 flex items-center justify-between">
-                    <span data-i18n="day_sat">Saturday</span>
-                    <span>8:00 AM &ndash; 12:00 AM</span>
-                  </div>
-                  <div class="mt-2 flex items-center justify-between">
-                    <span data-i18n="day_sun">Sunday</span>
-                    <span>8:00 AM &ndash; 12:00 AM</span>
-                  </div>
-                </div>
+          <div class="contact-info-block reveal reveal-delay-2">
+            <div class="contact-label">Ünvan</div>
+            <div class="contact-value">
+              56 Qarabağ küçəsi, Bakı 1052
             </div>
           </div>
 
-          <div class="mt-10">
-            <iframe title="Map" class="h-56 w-full rounded-[2px] border border-foam"
-              src="https://maps.google.com/maps?q=Vladislav%20Plotnikov%20k%C3%BC%C3%A7%C9%99si%2C%20Baku%201007&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              loading="lazy"></iframe>
+          <div class="contact-info-block reveal reveal-delay-2">
+            <div class="contact-label">Telefon</div>
+            <div class="contact-value">
+              <a href="tel:01031577 88">010 315 77 88</a>
+            </div>
           </div>
+
+          <div class="contact-info-block reveal reveal-delay-3">
+            <div class="contact-label">İş saatları</div>
+            <div class="hours-grid">
+              <div class="hours-row"><span>Bazar ertəsi</span><span>09:00 – 23:00</span></div>
+              <div class="hours-row"><span>Çərşənbə axşamı</span><span>09:00 – 23:00</span></div>
+              <div class="hours-row"><span>Çərşənbə</span><span>09:00 – 23:00</span></div>
+              <div class="hours-row"><span>Cümə axşamı</span><span>09:00 – 23:00</span></div>
+              <div class="hours-row"><span>Cümə</span><span>09:00 – 23:00</span></div>
+              <div class="hours-row today"><span>Şənbə</span><span>09:00 – 23:00</span></div>
+              <div class="hours-row"><span>Bazar</span><span>09:00 – 23:00</span></div>
+            </div>
+          </div>
+
+          <div class="contact-info-block reveal reveal-delay-4">
+            <div class="contact-label">İnstagram</div>
+            <div class="contact-value">
+              <a href="https://www.instagram.com/coffycoffeebaku/" target="_blank" rel="noopener">@coffycoffeebaku</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap reveal reveal-delay-2">
+          <iframe
+            title="Coffy Coffee xəritə"
+            src="https://maps.google.com/maps?q=40.3907703,49.8592886&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>
   </main>
-  <footer class="border-t border-foam bg-parchment/90">
-    <div class="mx-auto max-w-6xl px-5 py-14">
-      <div class="text-center">
-        <div class="font-display text-2xl italic">Cafe</div>
-        <div class="font-accent text-[11px] uppercase tracking-[0.35em]">Baku</div>
-      </div>
-      <div class="mt-10 grid gap-8 text-sm text-chocolate/70 md:grid-cols-3">
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
         <div>
-          <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="footer_nav">
-            Navigate
-          </div>
-          <div class="mt-3 flex flex-col gap-2">
-            <a href="#about" data-i18n="nav_about">About</a>
-            <a href="#menu" data-i18n="nav_menu">Menu</a>
-            <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
-            <a href="#reserve" data-i18n="nav_reserve">Reserve</a>
+          <div class="footer-logo-main">Coffy</div>
+          <div class="footer-logo-sub">Coffee · Baku</div>
+          <p class="footer-tagline">Hər qurtumda bir hekayə.<br/>Bakının ürəyindəki premium qəhvə məkanı.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Keçidlər</div>
+          <div class="footer-links">
+            <a href="#about">Haqqımızda</a>
+            <a href="#menu">Menyu</a>
+            <a href="#gallery">Qalereya</a>
+            <a href="#contact">Əlaqə</a>
           </div>
         </div>
         <div>
-          <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="footer_contact">
-            Contact
-          </div>
-          <div class="mt-3 flex flex-col gap-2">
-            <span>Nizami küçəsi 12, Bakı, AZ1000, Azərbaycan</span>
-              <span>+994-099-99-99</span>
-            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="553d3039393a153830343b312c3a2037343e207b342f">[email&#160;protected]</a></span>
-          </div>
-        </div>
-        <div>
-          <div class="font-accent uppercase tracking-[0.3em] text-roasted" data-i18n="footer_social">
-            Social
-          </div>
-          <div class="mt-3 flex items-center gap-4">
-            <a href="https://www.instagram.com" aria-label="Instagram"
-              class="rounded-full border border-chocolate/30 p-2">
-              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="4" y="4" width="16" height="16" rx="5" />
-                <circle cx="12" cy="12" r="3.5" />
-                <circle cx="17" cy="7" r="1" />
-              </svg>
-            </a>
-            <a href="https://www.tiktok.com" aria-label="TikTok" class="rounded-full border border-chocolate/30 p-2">
-              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M14 5c1 2 2.5 3 5 3" />
-                <path d="M12 4v9.5a3.5 3.5 0 1 1-3-3.46" />
-              </svg>
-            </a>
+          <div class="footer-col-title">Əlaqə</div>
+          <div class="footer-links">
+            <a href="tel:01031577 88">010 315 77 88</a>
+            <a href="https://maps.google.com/?q=56+Qarabag+kucesi+Baku" target="_blank" rel="noopener">56 Qarabağ küçəsi, Bakı 1052</a>
+            <a href="https://www.instagram.com/coffycoffeebaku/" target="_blank" rel="noopener">@coffycoffeebaku</a>
           </div>
         </div>
       </div>
-      <div class="mt-10 text-center text-xs text-chocolate/50" data-i18n="footer_copy">
-        &copy; 2025 Cafe <script src="script.js"></script>
+      <div class="footer-bottom">
+        <span>© 2025 Coffy Coffee Baku. Bütün hüquqlar qorunur.</span>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/coffycoffeebaku/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.google.com/maps/place/Coffy+Coffee/@40.3907703,49.8592886,17z" target="_blank" rel="noopener" class="social-btn" aria-label="Google Maps">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
